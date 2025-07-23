@@ -1,0 +1,12 @@
+aws:
+  s3:
+    bucket-name: "dm-system-cdn"
+  region: "ap-south-1"
+  credentials:
+    access-key: ${AWS_ACCESS_KEY_ID}
+    secret-key: ${AWS_SECRET_ACCESS_KEY}
+
+# Application-specific settings
+app:
+  s3:
+    presigned-url-duration-minutes: 15
