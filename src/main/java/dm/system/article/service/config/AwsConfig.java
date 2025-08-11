@@ -37,4 +37,5 @@ public class AwsConfig {
                         AwsBasicCredentials.create(accessKey, secretKey)))
                 .build();
     }
+
 }

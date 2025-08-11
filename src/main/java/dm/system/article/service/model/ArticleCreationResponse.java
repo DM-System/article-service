@@ -1,5 +1,6 @@
 package dm.system.article.service.model;
 
+import dm.system.document.common.domain.document.Document;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ArticleCreationResponse {
 
-    private Article article;
+    private Document article;
     private String publicUrl;
 
 }

@@ -1,0 +1,21 @@
+aws:
+  s3:
+    bucket-name: "dm-system-cdn"
+  region: "ap-south-1"
+  credentials:
+    access-key: ${AWS_ACCESS_KEY_ID}
+    secret-key: ${AWS_SECRET_ACCESS_KEY}
+  dynamo-db:
+    region: ${AWS_AURORA_REGION}
+    table-name: ${AWS_AURORA_CONNECTION_URL}
+    access-key: ${AWS_AURORA_USERNAME}
+    secret-key: ${AWS_AURORA_PASSWORD}
+    local-endpoint:
+
+# Application-specific settings
+app:
+  s3:
+    presigned-url-duration-minutes: 15
+  datasource:
+    url: ${AWS_AURORA_CONNECTION_URL}
+    username: ${AWS_AURORA_USERNAME}

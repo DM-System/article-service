@@ -1,8 +1,8 @@
 package dm.system.article.service.storagestrategy;
 
-import dm.system.article.service.model.Article;
+import dm.system.document.common.domain.document.Document;
 
 public interface ArticleStorageStrategy {
 
-    void save(Article article);
+    void save(Document article);
 }

@@ -5,6 +5,14 @@ aws:
   credentials:
     access-key: ${AWS_ACCESS_KEY_ID}
     secret-key: ${AWS_SECRET_ACCESS_KEY}
+  dynamo-db:
+    region: ${AWS_DYNAMODB_REGION}
+    access-key: ${AWS_DYNAMODB_USERNAME}
+    secret-key: ${AWS_DYNAMODB_PASSWORD}
+    local-endpoint: "http://localhost:8000"
+    table-name: ${AWS_DYNAMODB_TABLE_NAME}
+    gsi1-index-name: ${AWS_DYNAMODB_GSI_INDEX_NAME}
+
 
 # Application-specific settings
 app:
