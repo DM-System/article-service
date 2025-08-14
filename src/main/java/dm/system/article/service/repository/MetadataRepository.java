@@ -14,6 +14,8 @@ public interface MetadataRepository {
 
     void save(WebMetadataItem item);
 
+    WebMetadataItem update(WebMetadataItem item);
+
     DynamoDBPage getArticlesByRecordState(String recordState, Map<String, String> lastEvaluatedKeyMap);
 
 }

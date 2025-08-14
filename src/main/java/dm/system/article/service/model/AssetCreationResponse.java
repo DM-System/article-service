@@ -1,20 +1,17 @@
 package dm.system.article.service.model;
 
 import dm.system.article.service.entity.WebMetadataItem;
-import dm.system.document.common.domain.document.Document;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Builder
-public class ArticleCreationResponse {
+@AllArgsConstructor
+@NoArgsConstructor
+public class AssetCreationResponse {
 
-    private Document document;
     private WebMetadataItem webMetadataItem;
-    private String publicUrl;
 
 }

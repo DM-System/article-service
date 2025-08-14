@@ -25,7 +25,6 @@ public class AwsDynamoDBConfig {
         DynamoDbClientBuilder builder = DynamoDbClient.builder();
 
         if (Objects.nonNull(awsProperties.getDynamoDB().getLocalEndpoint())) {
-            System.out.println(awsProperties.getDynamoDB().getLocalEndpoint());
             builder.endpointOverride(URI.create(awsProperties.getDynamoDB().getLocalEndpoint()));
         } else {
             builder

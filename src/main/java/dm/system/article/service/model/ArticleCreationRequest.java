@@ -8,13 +8,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Builder
-public class ArticleCreationResponse {
+@AllArgsConstructor
+@NoArgsConstructor
+public class ArticleCreationRequest {
 
-    private Document document;
     private WebMetadataItem webMetadataItem;
-    private String publicUrl;
-
+    private Document document;
 }

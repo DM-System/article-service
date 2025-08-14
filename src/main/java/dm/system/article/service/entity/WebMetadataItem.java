@@ -3,7 +3,6 @@ package dm.system.article.service.entity;
 import lombok.*;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.*;
 import software.amazon.awssdk.services.dynamodb.model.AttributeValue;
-import software.amazon.awssdk.services.s3.endpoints.internal.Value;
 
 import java.math.BigDecimal;
 import java.util.Map;
@@ -17,14 +16,15 @@ import java.util.Map;
 public class WebMetadataItem {
 
     // --- Primary Key Attributes ---
-    private String pk;
-    private String sk;
+    private String pk; // ARTICLE#UUID // UUID parent folder
+    private String sk; // UUID
 
     // --- Core Entity Attributes ---
     private String entityType;
     private String recordState;
     private String title;
     private String summary;
+    private String s3ThumbnailPath;
     private String s3ContentPath;
     private Boolean isMultiPage;
     private Integer pageCount;
@@ -42,8 +42,10 @@ public class WebMetadataItem {
     private String createdAt;
     private String lastUpdatedAt;
 
-    private String gsi1pk;
-    private String gsi1sk;
+    private String gsi1pk;  // ARTICLE#DRAFT
+    private String gsi1sk;  // TIMESTAMP
+
+    private String fullFileName;
 
     // --- Getters and Setters ---
 

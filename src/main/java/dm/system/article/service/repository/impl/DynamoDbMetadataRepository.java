@@ -20,7 +20,6 @@ public class DynamoDbMetadataRepository implements MetadataRepository {
     private final DynamoDbIndex<WebMetadataItem> gsi1;
 
     public DynamoDbMetadataRepository(AwsProperties awsProperties, DynamoDbEnhancedClient enhancedClient) {
-        System.out.println(awsProperties.getDynamoDB().getTableName());
         this.metadataTable = enhancedClient.table(awsProperties.getDynamoDB().getTableName(),
                 TableSchema.fromClass(WebMetadataItem.class));
         this.gsi1 = this.metadataTable.index(awsProperties.getDynamoDB().getGsi1IndexName());
@@ -56,11 +55,21 @@ public class DynamoDbMetadataRepository implements MetadataRepository {
     }
 
     @Override
+    public WebMetadataItem update(WebMetadataItem updatdWebMetadataItem) {
+        try {
+            return metadataTable.updateItem(updatdWebMetadataItem);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    @Override
     public DynamoDBPage getArticlesByRecordState(String recordState, Map<String, String> lastEvaluatedKeyMap) {
         QueryEnhancedRequest.Builder queryEnhancedRequestBuilder = QueryEnhancedRequest.builder()
                 .queryConditional(QueryConditional.keyEqualTo(k -> k.partitionValue(recordState)))
                 .consistentRead(false)
-                .limit(2);
+                .limit(10);
 
         if (Objects.nonNull(lastEvaluatedKeyMap) && !lastEvaluatedKeyMap.isEmpty()) {
             queryEnhancedRequestBuilder.exclusiveStartKey(WebMetadataItem.buildLastEvaluatedKey(lastEvaluatedKeyMap));
