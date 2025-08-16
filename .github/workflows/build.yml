@@ -10,7 +10,7 @@ env:
   # Use this env variable to set the image name and tag
   # ghcr.io/OWNER/REPOSITORY_NAME:latest
   # We use github.repository which is automatically OWNER/REPOSITORY_NAME
-  IMAGE_NAME: ghcr.io/article-service
+  IMAGE_NAME: ghcr.io/dm-system/article-service
 
 jobs:
   build-and-push:
